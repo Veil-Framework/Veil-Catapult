@@ -2,7 +2,7 @@
 
 """
 
-Veil-Catapult 1.0
+Veil-Catapult 1.1
 By: @harmj0y
 
 Payload delivery tool and a part of the [Veil-Framework](www.veil-framework.com).
@@ -227,7 +227,7 @@ def title():
     """
     os.system('clear')
     print "========================================================================="
-    print " Veil-Catapult: payload delivery system | [Version]: 1.0"
+    print " Veil-Catapult: payload delivery system | [Version]: 1.1"
     print '========================================================================='
     print ' [Web]: https://www.veil-framework.com/ | [Twitter]: @veilframework'
     print '========================================================================='
