@@ -516,9 +516,22 @@ def exeDeliveryMenu(args):
             # if we're using the full interactive menu for Veil-Evasion
             else:
                 payloadPath = con.MainMenu()
+
+                # if we see the setting to spawn the handler for this payload
+                if settings.SPAWN_CATAPULT_HANDLER.lower() == "true":
+
+                    # build the path to what the handler should be and
+                    handlerPath = settings.HANDLER_PATH + payloadPath.split(".")[0].split("/")[-1] + "_handler.rc"
+
+                    cmd = "gnome-terminal --tab -t \"Veil-Evasion Handler\" -x bash -c \"echo ' [*] Spawning Metasploit handler...' && msfconsole -r '" + handlerPath + "'\""
+                    
+                    # invoke msfconsole with the handler script in a new tab
+                    os.system(cmd)
+
                 if payloadPath == "":
                     mainMenu(args)
                 title()
+
                 print " EXE delivery\n"
 
     # get the targets and credentials
@@ -1418,5 +1431,5 @@ if __name__ == '__main__':
                     thread._Thread__stop()
                 except:
                     pass
-
         sys.exit()
+

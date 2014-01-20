@@ -124,7 +124,12 @@ def generateConfig(options):
         print " [*] Path '" + catapult_resource_path + "' Created"
     config += '# Path to output Veil-Catapult resource/cleanup files\n'
     config += 'CATAPULT_RESOURCE_PATH="' + catapult_resource_path + '"\n\n'
-    print " [*] CATAPULT_RESOURCE_PATH = " + catapult_resource_path + "\n"
+    print " [*] CATAPULT_RESOURCE_PATH = " + catapult_resource_path
+
+
+    config += '# Whether to automatically spawn a handler for a Veil-Evasion produced payloads\n'
+    config += 'SPAWN_CATAPULT_HANDLER="' + options['SPAWN_CATAPULT_HANDLER'] + '"\n\n'
+    print " [*] SPAWN_CATAPULT_HANDLER = " + options['SPAWN_CATAPULT_HANDLER'] + "\n"
 
 
     if platform.system() == "Linux":
@@ -139,7 +144,6 @@ def generateConfig(options):
     else:
         print " [!] ERROR: PLATFORM NOT CURRENTLY SUPPORTED"
         sys.exit()
-
 
 if __name__ == '__main__':
 
@@ -189,6 +193,7 @@ if __name__ == '__main__':
         # print "path:",veil_catapult_path
         options["VEIL_CATAPULT_PATH"] = veil_catapult_path
         options["CATAPULT_RESOURCE_PATH"] = "~/veil-output/catapult/"
+        options["SPAWN_CATAPULT_HANDLER"] = "false"
 
     
     # unsupported platform... 
