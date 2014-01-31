@@ -5,7 +5,7 @@ clear
 
 # Echo Title
 echo '========================================================================='
-echo ' Veil-Catapult Setup Script | [Updated]: 01.15.2014'
+echo ' Veil-Catapult Setup Script | [Updated]: 01.30.2014'
 echo '========================================================================='
 echo ' [Web]: https://www.veil-framework.com | [Twitter]: @veilframework'
 echo '========================================================================='
@@ -23,16 +23,12 @@ then
     echo " [*] Impacket Already Installed... Skipping."
     echo
 else
+    echo -e " [*] Installing impacket\n"
     # install Impacket
-    wget_output=$(wget -q -O "/tmp/impacket-0.9.10.tar.gz" "http://impacket.googlecode.com/files/impacket-0.9.10.tar.gz")
-    if [ $? -ne 0 ]; then
-        echo "Download of Impacket failed";
-    else
-        tar -C /tmp/ -zxvf /tmp/impacket-0.9.10.tar.gz
-        cd /tmp/impacket-0.9.10/
-        python setup.py install
-        cd -
-    fi
+    svn checkout http://impacket.googlecode.com/svn/trunk/ /tmp/impacket-svn/
+    cd /tmp/impacket-svn/
+    python setup.py install
+    cd -
 fi
 
 
