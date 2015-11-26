@@ -24,9 +24,9 @@ then
     echo
 else
     echo -e " [*] Installing impacket\n"
-    # install Impacket
-    svn checkout http://impacket.googlecode.com/svn/trunk/ /tmp/impacket-svn/
-    cd /tmp/impacket-svn/
+    # install Impacket moved to github https://github.com/coresecurity/impacket
+    git checkout https://github.com/CoreSecurity/impacket.git /tmp/impacket/
+    cd /tmp/impacket/
     python setup.py install
     cd -
 fi
